@@ -17,14 +17,14 @@ class NameField extends Component {
                 <div>
                     <input  
                         value={this.state.name1}
-                        onChange = {event => this.setState({name1 : event.target.value})}  placeholder = "Player1"/>
-                    Player 1 name:   {this.state.name1} 
+                        onChange = {event => this.setState({name1 : event.target.value})}  placeholder = "PlayerX"/>
+                    Player X name:   {this.state.name1} 
                 </div>
                 <div>
                     <input  
                         value={this.state.name2}
-                        onChange = {event => this.setState({name2 : event.target.value})}  placeholder = "Player2"/>   
-                     Player 2 name:   {this.state.name2} 
+                        onChange = {event => this.setState({name2 : event.target.value})}  placeholder = "PlayerO"/>   
+                     Player O name:   {this.state.name2} 
                 </div>
             </div>
         );
