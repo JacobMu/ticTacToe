@@ -29,6 +29,10 @@
   align-items: center;
 }
 
+.highlight {
+  background-color: aqua;
+}
+
 .square:hover {
   cursor: pointer;
   background-color: #80cd92;

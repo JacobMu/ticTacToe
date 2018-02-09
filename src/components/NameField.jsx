@@ -3,36 +3,60 @@ import React, {Component} from 'react';
 
 class NameField extends Component {
     constructor( props ) {
-        super(props);
-
-        this.state = {
+        super(props);       
+           
+        this.state = {            
             name1: '',
-            name2: ''
+            name2: '', 
+            printedNames: {
+                name1: '',
+                name2: '',
+            },           
         };
     }
 
-    render() {
-        return (
-            <div>
-                <div>
-                    <input  
-                        value={this.state.name1}
-                        onChange = {event => this.setState({name1 : event.target.value})}  placeholder = "PlayerX"/>
-                    Player X name:   {this.state.name1} 
-                </div>
-                <div>
-                    <input  
-                        value={this.state.name2}
-                        onChange = {event => this.setState({name2 : event.target.value})}  placeholder = "PlayerO"/>   
-                     Player O name:   {this.state.name2} 
-                </div>
-            </div>
-        );
+    handleChange = (event, key) => {
+        this.setState({
+            [key]: event.target.value,
+        });
+    }    
+
+    printNames = () => {
+        const { name1, name2 } = this.state;
+        this.setState({
+            printedNames: {
+                name1,
+                name2,
+            },
+        });
     }
 
-    
+    render() {             
+        return (
+            <div>
+                <div>                
+                    <input  
+                        type='text' 
+                        onChange={(event) => this.handleChange(event, 'name1')}
+                        value={this.state.name1}
+                    />
+                    <div>
+                        Player X name: {this.state.printedNames.name1} 
+                    </div>
+                    <input  
+                        type='text'                    
+                        onChange={(event) => this.handleChange(event, 'name2')}
+                        value={this.state.name2}
+                        />  
+                    <div>
+                        Player O name: {this.state.printedNames.name2} 
+                    </div>
+                </div>  
+                <button onClick={this.printNames}>save me</button>
+            </div>
+        );
+    }   
 }
 
 export default NameField;
 
-// onChange = {event => this.setState({name : event.target.value})}

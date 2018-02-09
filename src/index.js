@@ -2,10 +2,9 @@
 
 import React, { Component } from "react";
 import { render } from "react-dom";
-import './App.css';
+import './css/App.css';
 import NameField from "./components/NameField";
 
-// import Board from "./components/Board";
 
 
 class App extends Component {
@@ -19,9 +18,9 @@ class App extends Component {
             winner: null,
             board: [
                 "", "", "", "", "", "", "", "", ""
-                ],
+                ],           
         }
-    }
+    }   
 
 
     handleClick(index) {
@@ -32,7 +31,7 @@ class App extends Component {
                 currentTurn: this.state.currentTurn === this.state.playerOneSymbol ? this.state.playerTwoSymbol : this.state.playerOneSymbol,
                 winner: this.checkForWinner(),
             })
-        }
+        } 
     }
 
     checkForWinner() {
@@ -45,26 +44,32 @@ class App extends Component {
                 return symbols[a];
             }
         }
-        return null;
-        
-    }
+        return null;        
+    }   
     
     render () {
         return (
             <div className='app-container'>
                 Welcome to Tic Tac Toe game!
                 <NameField/>
-                {this.state.winner ? <h1>{`The winner is ${this.state.winner}`}</h1> : null}
+                
+                   <div>
+                       {this.state.winner ? <h1>{`The winner is ${this.state.winner} `}</h1> : null}
+                   </div>
 
                <div className="board">
                    {this.state.board.map((cell, index) => {
-                       return <div onClick={() => this.handleClick(index)}className='square'>{cell}</div>;
+                       return (
+                           <div                                 
+                                onClick={() => this.handleClick(index)}className='square'>
+                                {cell}
+                            </div>
+                        );
                    })}
                </div>
-
             </div>
         );
     }
 }
 
-render(<App />, document.querySelector('.container'));
+render(<App/>, document.querySelector('.container'));

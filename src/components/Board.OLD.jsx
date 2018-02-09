@@ -38,9 +38,7 @@ class Board extends Component {
     }
 
     render() {
-        const activePlayer = 'Player 1';
-
-
+        
         return (
             <div>
                 <div className="status">{activePlayer}</div>
